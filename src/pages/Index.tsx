@@ -17,7 +17,7 @@ const quizSteps = [
       { id: "self", label: "Для себя / семьи", icon: "Users" },
       { id: "invest", label: "Инвестиции", icon: "TrendingUp" },
       { id: "rent", label: "Под аренду", icon: "Key" },
-      { id: "relocate", label: "Переезд в Екатеринбург", icon: "MapPin" },
+      { id: "relocate", label: "Переезд / смена города", icon: "MapPin" },
     ],
   },
   {
@@ -33,13 +33,13 @@ const quizSteps = [
   },
   {
     id: 3,
-    question: "Какой район предпочтительнее?",
+    question: "В каком регионе ищете?",
     emoji: "📍",
     options: [
-      { id: "center", label: "Центр", icon: "Building2" },
-      { id: "north", label: "Север / ВИЗ", icon: "Navigation" },
-      { id: "south", label: "Юг / Академический", icon: "Compass" },
-      { id: "any", label: "Не важно, главное цена", icon: "Shuffle" },
+      { id: "ekb", label: "Екатеринбург", icon: "Building2" },
+      { id: "msk", label: "Москва / МО", icon: "Navigation" },
+      { id: "sea", label: "Черноморское побережье", icon: "Compass" },
+      { id: "abroad", label: "За рубежом", icon: "Globe" },
     ],
   },
   {
@@ -69,12 +69,12 @@ const quizSteps = [
 const properties = [
   {
     id: 1,
-    name: "ЖК «Небосвод»",
+    name: "ЖК «Чкалов»",
     district: "Центр",
-    price: "от 6.2 млн ₽",
-    priceM2: "148 000 ₽/м²",
-    area: "42–89 м²",
-    deadline: "IV кв. 2025",
+    price: "от 7.1 млн ₽",
+    priceM2: "165 000 ₽/м²",
+    area: "43–92 м²",
+    deadline: "IV кв. 2026",
     propClass: "Бизнес",
     badge: "ХИТ",
     badgeColor: "#FF8C00",
@@ -84,11 +84,11 @@ const properties = [
   },
   {
     id: 2,
-    name: "ЖК «Уральский квартал»",
+    name: "ЖК «Квартал на Декабристов»",
     district: "Север / ВИЗ",
-    price: "от 3.8 млн ₽",
-    priceM2: "105 000 ₽/м²",
-    area: "28–65 м²",
+    price: "от 4.2 млн ₽",
+    priceM2: "112 000 ₽/м²",
+    area: "30–68 м²",
     deadline: "II кв. 2026",
     propClass: "Комфорт",
     badge: "НОВЫЙ",
@@ -99,26 +99,26 @@ const properties = [
   },
   {
     id: 3,
-    name: "ЖК «Академический Парк»",
+    name: "ЖК «Академический»",
     district: "Академический",
-    price: "от 4.5 млн ₽",
-    priceM2: "118 000 ₽/м²",
-    area: "35–78 м²",
-    deadline: "I кв. 2026",
+    price: "от 4.8 млн ₽",
+    priceM2: "121 000 ₽/м²",
+    area: "37–80 м²",
+    deadline: "III кв. 2026",
     propClass: "Комфорт+",
-    badge: "СКИДКА 5%",
+    badge: "ВЫГОДНО",
     badgeColor: "#39FF14",
     img: IMAGES.aerial,
-    features: ["Школа рядом", "Парк", "Велодорожки"],
+    features: ["Школа во дворе", "Парк", "Велодорожки"],
     rating: 4.8,
   },
   {
     id: 4,
-    name: "ЖК «Platinum»",
+    name: "ЖК «Макаровский»",
     district: "Центр",
-    price: "от 12.5 млн ₽",
-    priceM2: "215 000 ₽/м²",
-    area: "65–180 м²",
+    price: "от 13.5 млн ₽",
+    priceM2: "220 000 ₽/м²",
+    area: "62–185 м²",
     deadline: "Сдан",
     propClass: "Премиум",
     badge: "ПРЕМИУМ",
@@ -186,10 +186,10 @@ const Index = () => {
   });
 
   const galleryImages = [
-    { src: IMAGES.hero, caption: "ЖК «Небосвод» — фасад" },
-    { src: IMAGES.complex1, caption: "ЖК «Уральский квартал»" },
-    { src: IMAGES.aerial, caption: "Аэросъёмка района" },
-    { src: IMAGES.interior, caption: "Интерьер класса Премиум" },
+    { src: IMAGES.hero, caption: "ЖК «Чкалов» — фасад" },
+    { src: IMAGES.complex1, caption: "ЖК «Квартал на Декабристов»" },
+    { src: IMAGES.aerial, caption: "Аэросъёмка района Академический" },
+    { src: IMAGES.interior, caption: "Интерьер класса Премиум — ЖК «Макаровский»" },
   ];
 
   const validateForm = () => {
@@ -268,8 +268,8 @@ const Index = () => {
               </h1>
 
               <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 font-golos">
-                Пройди бесплатный квиз и получи персональную подборку новостроек,
-                подходящих именно тебе — по бюджету, площади и локации.
+                Пройди бесплатный квиз — и получи персональную подборку новостроек
+                от проверенных застройщиков по всей России и за рубежом.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-16">
@@ -418,7 +418,9 @@ const Index = () => {
             <h1 className="font-oswald font-bold text-3xl md:text-4xl text-white mb-2">
               {Object.keys(answers).length > 0 ? "Ваша подборка готова" : "Все объекты"}
             </h1>
-            <p className="text-muted-foreground font-golos">{filteredProperties.length} объектов найдено</p>
+            <p className="text-muted-foreground font-golos">
+              {filteredProperties.length === 1 ? "1 объект найден" : `${filteredProperties.length} объекта найдено`}
+            </p>
           </div>
 
           {/* Filters */}
@@ -548,17 +550,17 @@ const Index = () => {
               </div>
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h3 className="font-oswald font-bold text-2xl text-white mb-2">О компании НовоДом</h3>
+              <h3 className="font-oswald font-bold text-2xl text-white mb-2">О компании «Новый Мир»</h3>
               <p className="text-muted-foreground font-golos leading-relaxed mb-4">
-                Мы работаем на рынке недвижимости Екатеринбурга более 5 лет. Подбираем новостройки
-                от ведущих застройщиков по всей России — бесплатно для покупателей.
-                Более 1 200 семей уже нашли свой дом с нашей помощью.
+                Работаем на рынке недвижимости более 10 лет. Подбираем новостройки
+                от проверенных застройщиков по всей России и за рубежом — бесплатно для покупателей.
+                Более 2 000 семей уже нашли свой дом с нашей помощью.
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 {[
-                  { icon: "Award", text: "Топ-10 агентств Урала" },
-                  { icon: "Shield", text: "Юридическая чистота" },
-                  { icon: "Headphones", text: "Поддержка 24/7" },
+                  { icon: "Award", text: "10+ лет на рынке" },
+                  { icon: "Shield", text: "Юридическая чистота сделки" },
+                  { icon: "Headphones", text: "Поддержка на всех этапах" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2 text-sm text-muted-foreground font-golos">
                     <Icon name={item.icon} size={14} className="neon-orange" />
