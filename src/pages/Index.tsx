@@ -243,7 +243,7 @@ const Index = () => {
                 style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
                 <Icon name="Building2" size={16} className="text-white" />
               </div>
-              <span className="font-oswald font-bold text-xl tracking-wide text-white">НОВОДОМ</span>
+              <span className="font-oswald font-bold text-xl tracking-wide text-white">НОВЫЙ МИР</span>
             </div>
             <a href="tel:+79043870441" className="flex items-center gap-2 btn-secondary px-4 py-2 rounded-xl text-sm font-golos">
               <Icon name="Phone" size={15} />
@@ -325,7 +325,7 @@ const Index = () => {
                 style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
                 <Icon name="Building2" size={13} className="text-white" />
               </div>
-              <span className="font-oswald font-bold text-lg tracking-wide text-white">НОВОДОМ</span>
+              <span className="font-oswald font-bold text-lg tracking-wide text-white">НОВЫЙ МИР</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-sm text-muted-foreground font-golos">{step + 1} / {quizSteps.length}</span>
@@ -392,7 +392,7 @@ const Index = () => {
               style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
               <Icon name="Building2" size={13} className="text-white" />
             </div>
-            <span className="font-oswald font-bold text-lg tracking-wide text-white">НОВОДОМ</span>
+            <span className="font-oswald font-bold text-lg tracking-wide text-white">НОВЫЙ МИР</span>
           </div>
           <div className="flex items-center gap-3">
             {compareList.length > 0 && (
