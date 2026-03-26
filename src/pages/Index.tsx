@@ -278,12 +278,13 @@ const Index = () => {
                 >
                   Подобрать квартиру →
                 </button>
-                <button
-                  className="btn-secondary px-8 py-4 rounded-xl text-base font-golos"
-                  onClick={() => setScreen("results")}
+                <a
+                  href="tel:+79043870441"
+                  className="btn-secondary px-8 py-4 rounded-xl text-base font-golos flex items-center gap-2"
                 >
-                  Смотреть все объекты
-                </button>
+                  <Icon name="Phone" size={18} />
+                  Позвонить
+                </a>
               </div>
 
               <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto">
