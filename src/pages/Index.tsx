@@ -142,6 +142,8 @@ const Index = () => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [form, setForm] = useState({ name: "", phone: "", comment: "" });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const [formLoading, setFormLoading] = useState(false);
+  const [formSendError, setFormSendError] = useState("");
 
   const currentStep = quizSteps[step];
   const progress = ((step + 1) / quizSteps.length) * 100;
@@ -197,10 +199,29 @@ const Index = () => {
     return errors;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const errors = validateForm();
     if (Object.keys(errors).length > 0) { setFormErrors(errors); return; }
-    setScreen("success");
+    setFormLoading(true);
+    setFormSendError("");
+    try {
+      const res = await fetch("https://functions.poehali.dev/cb68c353-0443-4cfc-be14-03c6368a1b1b", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          comment: form.comment,
+          selected: Object.values(answers).join(", "),
+        }),
+      });
+      if (!res.ok) throw new Error();
+      setScreen("success");
+    } catch {
+      setFormSendError("Ошибка отправки. Попробуйте ещё раз или позвоните нам.");
+    } finally {
+      setFormLoading(false);
+    }
   };
 
   // ── HERO ──────────────────────────────────────────────────────────────────
@@ -600,9 +621,12 @@ const Index = () => {
                   onChange={(e) => setForm((f) => ({ ...f, comment: e.target.value }))} rows={3}
                   className="w-full px-4 py-3 rounded-xl bg-muted border border-border font-golos text-white placeholder:text-muted-foreground focus:outline-none focus:border-orange-500 transition-all resize-none" />
               </div>
-              <button className="w-full btn-primary py-4 rounded-xl font-golos font-semibold text-base text-white mt-2"
-                onClick={handleSubmit}>
-                Отправить заявку
+              {formSendError && (
+                <p className="text-red-400 text-sm font-golos text-center">{formSendError}</p>
+              )}
+              <button className="w-full btn-primary py-4 rounded-xl font-golos font-semibold text-base text-white mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                onClick={handleSubmit} disabled={formLoading}>
+                {formLoading ? "Отправляем..." : "Отправить заявку"}
               </button>
               <p className="text-center text-xs text-muted-foreground font-golos">
                 Нажимая кнопку, вы соглашаетесь с{" "}
