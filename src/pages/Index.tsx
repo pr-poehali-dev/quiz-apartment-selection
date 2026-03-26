@@ -636,16 +636,16 @@ const Index = () => {
           </div>
 
           <div className="mt-6 grid grid-cols-2 gap-3">
-            {[
-              { icon: "Phone", text: "+7 (343) 000-00-00", label: "Звонок" },
-              { icon: "MessageSquare", text: "WhatsApp / Telegram", label: "Мессенджеры" },
-            ].map((c) => (
-              <div key={c.label} className="glass-card rounded-xl p-4 text-center">
-                <Icon name={c.icon} size={18} className="neon-orange mx-auto mb-2" />
-                <div className="text-xs text-muted-foreground font-golos mb-1">{c.label}</div>
-                <div className="text-xs font-medium text-white font-golos">{c.text}</div>
-              </div>
-            ))}
+            <a href="tel:+79043870441" className="glass-card rounded-xl p-4 text-center block hover:border-orange-500/50 transition-all">
+              <Icon name="Phone" size={18} className="neon-orange mx-auto mb-2" />
+              <div className="text-xs text-muted-foreground font-golos mb-1">Звонок</div>
+              <div className="text-xs font-medium text-white font-golos">+7 (904) 387-04-41</div>
+            </a>
+            <a href="https://t.me/Smirnov_uslugi" target="_blank" rel="noreferrer" className="glass-card rounded-xl p-4 text-center block hover:border-orange-500/50 transition-all">
+              <Icon name="MessageSquare" size={18} className="neon-orange mx-auto mb-2" />
+              <div className="text-xs text-muted-foreground font-golos mb-1">Telegram</div>
+              <div className="text-xs font-medium text-white font-golos">@Smirnov_uslugi</div>
+            </a>
           </div>
         </div>
       </div>
