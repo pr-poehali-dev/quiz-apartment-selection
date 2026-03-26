@@ -245,10 +245,11 @@ const Index = () => {
               </div>
               <span className="font-oswald font-bold text-xl tracking-wide text-white">НОВОДОМ</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="glow-dot" />
-              <span>Бесплатный подбор</span>
-            </div>
+            <a href="tel:+79043870441" className="flex items-center gap-2 btn-secondary px-4 py-2 rounded-xl text-sm font-golos">
+              <Icon name="Phone" size={15} />
+              <span className="hidden sm:inline">+7 (904) 387-04-41</span>
+              <span className="sm:hidden">Звонок</span>
+            </a>
           </header>
 
           <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 text-center">
@@ -256,7 +257,7 @@ const Index = () => {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm mb-8"
                 style={{ borderColor: "rgba(255,140,0,0.3)" }}>
                 <Icon name="Sparkles" size={14} className="neon-orange" />
-                <span className="text-muted-foreground">Более 200 объектов в Екатеринбурге и регионах</span>
+                <span className="text-muted-foreground">1000+ застройщиков по России и всему миру</span>
               </div>
 
               <h1 className="font-oswald font-bold leading-none mb-6"
@@ -289,8 +290,8 @@ const Index = () => {
 
               <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto">
                 {[
-                  { value: "200+", label: "Объектов" },
-                  { value: "5 лет", label: "На рынке" },
+                  { value: "1000+", label: "Застройщиков" },
+                  { value: "10+ лет", label: "На рынке" },
                   { value: "0 ₽", label: "Комиссия" },
                 ].map((s) => (
                   <div key={s.label} className="glass-card rounded-xl p-4">
@@ -326,7 +327,13 @@ const Index = () => {
               </div>
               <span className="font-oswald font-bold text-lg tracking-wide text-white">НОВОДОМ</span>
             </div>
-            <span className="text-sm text-muted-foreground font-golos">{step + 1} / {quizSteps.length}</span>
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-muted-foreground font-golos">{step + 1} / {quizSteps.length}</span>
+              <a href="tel:+79043870441" className="flex items-center gap-1.5 btn-secondary px-3 py-1.5 rounded-lg text-sm font-golos">
+                <Icon name="Phone" size={13} />
+                <span className="hidden sm:inline">Позвонить</span>
+              </a>
+            </div>
           </div>
 
           <div className="h-1 bg-muted rounded-full mb-10 overflow-hidden">
@@ -395,6 +402,10 @@ const Index = () => {
                 Сравниваю {compareList.length}
               </div>
             )}
+            <a href="tel:+79043870441" className="flex items-center gap-2 btn-secondary px-4 py-2 rounded-lg text-sm font-golos">
+              <Icon name="Phone" size={14} />
+              <span className="hidden sm:inline">Позвонить</span>
+            </a>
             <button className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold font-golos text-white"
               onClick={() => setScreen("contact")}>
               Связаться с агентом
@@ -582,10 +593,16 @@ const Index = () => {
           style={{ background: "radial-gradient(circle, #00D4FF, transparent)" }} />
 
         <div className="relative z-10 w-full max-w-md animate-slide-up">
-          <button className="flex items-center gap-2 text-muted-foreground hover:text-white transition-colors mb-8 font-golos text-sm"
-            onClick={() => setScreen("results")}>
-            <Icon name="ArrowLeft" size={14} />Назад к объектам
-          </button>
+          <div className="flex items-center justify-between mb-8">
+            <button className="flex items-center gap-2 text-muted-foreground hover:text-white transition-colors font-golos text-sm"
+              onClick={() => setScreen("results")}>
+              <Icon name="ArrowLeft" size={14} />Назад к объектам
+            </button>
+            <a href="tel:+79043870441" className="flex items-center gap-2 btn-secondary px-4 py-2 rounded-xl text-sm font-golos">
+              <Icon name="Phone" size={14} />
+              <span className="hidden sm:inline">Позвонить</span>
+            </a>
+          </div>
 
           <div className="glass-card rounded-2xl p-8">
             <div className="text-center mb-8">
