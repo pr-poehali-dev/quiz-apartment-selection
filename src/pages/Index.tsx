@@ -227,26 +227,23 @@ const Index = () => {
   // ── HERO ──────────────────────────────────────────────────────────────────
   if (screen === "hero") {
     return (
-      <div className="min-h-screen noise-bg relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${IMAGES.hero})`, opacity: 0.15 }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
-        <div className="absolute top-20 right-20 w-72 h-72 rounded-full opacity-10 blur-3xl"
-          style={{ background: "radial-gradient(circle, #FF8C00, transparent)" }} />
-        <div className="absolute bottom-40 left-10 w-64 h-64 rounded-full opacity-10 blur-3xl"
-          style={{ background: "radial-gradient(circle, #00D4FF, transparent)" }} />
+      <div className="min-h-screen noise-bg hero-pattern relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-20 blur-3xl"
+          style={{ background: "radial-gradient(circle, #F56600, transparent)" }} />
+        <div className="absolute bottom-20 left-0 w-80 h-80 rounded-full opacity-10 blur-3xl"
+          style={{ background: "radial-gradient(circle, #1565C0, transparent)" }} />
 
         <div className="relative z-10 min-h-screen flex flex-col">
-          <header className="flex items-center justify-between px-6 py-5 md:px-12">
+          <header className="flex items-center justify-between px-6 py-5 md:px-12 bg-white/80 backdrop-blur-md border-b border-border">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
+                style={{ background: "linear-gradient(135deg, #F56600, #FF3D00)" }}>
                 <Icon name="Building2" size={16} className="text-white" />
               </div>
-              <span className="font-oswald font-bold text-xl tracking-wide text-white">НОВЫЙ МИР</span>
+              <span className="font-oswald font-bold text-xl tracking-wide text-foreground">НОВЫЙ МИР</span>
             </div>
             <a href="tel:+79043870441" className="flex items-center gap-2 btn-secondary px-4 py-2 rounded-xl text-sm font-golos">
-              <Icon name="Phone" size={15} />
+              <Icon name="Phone" size={15} className="brand-orange" />
               <span className="hidden sm:inline">+7 (904) 387-04-41</span>
               <span className="sm:hidden">Звонок</span>
             </a>
@@ -254,17 +251,16 @@ const Index = () => {
 
           <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 text-center">
             <div className="animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm mb-8"
-                style={{ borderColor: "rgba(255,140,0,0.3)" }}>
-                <Icon name="Sparkles" size={14} className="neon-orange" />
-                <span className="text-muted-foreground">1000+ застройщиков по России и всему миру</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-sm mb-8">
+                <Icon name="Sparkles" size={14} className="brand-orange" />
+                <span className="text-orange-700 font-medium">1000+ застройщиков по России и всему миру</span>
               </div>
 
-              <h1 className="font-oswald font-bold leading-none mb-6"
+              <h1 className="font-oswald font-bold leading-none mb-6 text-foreground"
                 style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}>
-                <span className="text-white">НАЙДИ СВОЮ</span><br />
+                НАЙДИ СВОЮ<br />
                 <span className="gradient-text">НОВОСТРОЙКУ</span><br />
-                <span className="text-white">ЗА 2 МИНУТЫ</span>
+                ЗА 2 МИНУТЫ
               </h1>
 
               <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 font-golos">
@@ -283,12 +279,12 @@ const Index = () => {
                   href="tel:+79043870441"
                   className="btn-secondary px-8 py-4 rounded-xl text-base font-golos flex items-center gap-2"
                 >
-                  <Icon name="Phone" size={18} />
+                  <Icon name="Phone" size={18} className="brand-orange" />
                   Позвонить
                 </a>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto">
+              <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
                 {[
                   { value: "1000+", label: "Застройщиков" },
                   { value: "10+ лет", label: "На рынке" },
@@ -315,34 +311,34 @@ const Index = () => {
   if (screen === "quiz") {
     return (
       <div className="min-h-screen noise-bg flex flex-col items-center justify-center px-6 py-10">
-        <div className="absolute top-20 right-20 w-64 h-64 rounded-full opacity-10 blur-3xl"
-          style={{ background: "radial-gradient(circle, #FF8C00, transparent)" }} />
+        <div className="absolute top-20 right-20 w-64 h-64 rounded-full opacity-15 blur-3xl"
+          style={{ background: "radial-gradient(circle, #F56600, transparent)" }} />
 
         <div className="relative z-10 w-full max-w-2xl animate-slide-up">
           <div className="flex items-center justify-between mb-10">
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => setScreen("hero")}>
               <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
+                style={{ background: "linear-gradient(135deg, #F56600, #FF3D00)" }}>
                 <Icon name="Building2" size={13} className="text-white" />
               </div>
-              <span className="font-oswald font-bold text-lg tracking-wide text-white">НОВЫЙ МИР</span>
+              <span className="font-oswald font-bold text-lg tracking-wide text-foreground">НОВЫЙ МИР</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-sm text-muted-foreground font-golos">{step + 1} / {quizSteps.length}</span>
               <a href="tel:+79043870441" className="flex items-center gap-1.5 btn-secondary px-3 py-1.5 rounded-lg text-sm font-golos">
-                <Icon name="Phone" size={13} />
+                <Icon name="Phone" size={13} className="brand-orange" />
                 <span className="hidden sm:inline">Позвонить</span>
               </a>
             </div>
           </div>
 
-          <div className="h-1 bg-muted rounded-full mb-10 overflow-hidden">
+          <div className="h-1.5 bg-muted rounded-full mb-10 overflow-hidden">
             <div className="h-full progress-bar rounded-full" style={{ width: `${progress}%` }} />
           </div>
 
           <div className="text-center mb-8">
             <div className="text-5xl mb-4">{currentStep.emoji}</div>
-            <h2 className="font-oswald font-bold text-3xl md:text-4xl text-white">{currentStep.question}</h2>
+            <h2 className="font-oswald font-bold text-3xl md:text-4xl text-foreground">{currentStep.question}</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
@@ -352,14 +348,14 @@ const Index = () => {
                 className={`option-card rounded-xl p-5 text-left flex items-center gap-4 ${selected === opt.id ? "selected" : ""}`}
                 onClick={() => handleOptionSelect(opt.id)}
               >
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${selected === opt.id ? "bg-orange-500/20" : "bg-muted"}`}>
-                  <Icon name={opt.icon} size={20} className={selected === opt.id ? "neon-orange" : "text-muted-foreground"} />
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all ${selected === opt.id ? "bg-orange-100" : "bg-muted"}`}>
+                  <Icon name={opt.icon} size={20} className={selected === opt.id ? "brand-orange" : "text-muted-foreground"} />
                 </div>
-                <span className={`font-golos font-medium text-base ${selected === opt.id ? "text-white" : "text-foreground"}`}>
+                <span className={`font-golos font-medium text-base ${selected === opt.id ? "text-foreground" : "text-foreground"}`}>
                   {opt.label}
                 </span>
                 {selected === opt.id && (
-                  <Icon name="Check" size={16} className="ml-auto neon-orange flex-shrink-0" />
+                  <Icon name="Check" size={16} className="ml-auto brand-orange flex-shrink-0" />
                 )}
               </button>
             ))}
@@ -386,24 +382,23 @@ const Index = () => {
   if (screen === "results") {
     return (
       <div className="min-h-screen noise-bg">
-        <header className="sticky top-0 z-30 glass-card border-b border-border px-6 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-border px-6 py-4 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => setScreen("hero")}>
             <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
+              style={{ background: "linear-gradient(135deg, #F56600, #FF3D00)" }}>
               <Icon name="Building2" size={13} className="text-white" />
             </div>
-            <span className="font-oswald font-bold text-lg tracking-wide text-white">НОВЫЙ МИР</span>
+            <span className="font-oswald font-bold text-lg tracking-wide text-foreground">НОВЫЙ МИР</span>
           </div>
           <div className="flex items-center gap-3">
             {compareList.length > 0 && (
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium"
-                style={{ background: "rgba(255,140,0,0.15)", border: "1px solid rgba(255,140,0,0.3)", color: "#FF8C00" }}>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-orange-50 border border-orange-200 text-orange-600">
                 <Icon name="GitCompare" size={12} />
                 Сравниваю {compareList.length}
               </div>
             )}
             <a href="tel:+79043870441" className="flex items-center gap-2 btn-secondary px-4 py-2 rounded-lg text-sm font-golos">
-              <Icon name="Phone" size={14} />
+              <Icon name="Phone" size={14} className="brand-orange" />
               <span className="hidden sm:inline">Позвонить</span>
             </a>
             <button className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold font-golos text-white"
@@ -415,7 +410,7 @@ const Index = () => {
 
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="mb-8 animate-fade-in">
-            <h1 className="font-oswald font-bold text-3xl md:text-4xl text-white mb-2">
+            <h1 className="font-oswald font-bold text-3xl md:text-4xl text-foreground mb-2">
               {Object.keys(answers).length > 0 ? "Ваша подборка готова" : "Все объекты"}
             </h1>
             <p className="text-muted-foreground font-golos">
@@ -431,8 +426,8 @@ const Index = () => {
             </div>
             {classes.map((c) => (
               <button key={c} onClick={() => setFilterClass(c)}
-                className={`px-4 py-1.5 rounded-full text-sm font-golos transition-all ${filterClass === c ? "text-black font-semibold" : "glass-card text-muted-foreground hover:text-foreground"}`}
-                style={filterClass === c ? { background: "linear-gradient(135deg, #FF8C00, #FF4500)" } : {}}>
+                className={`px-4 py-1.5 rounded-full text-sm font-golos transition-all ${filterClass === c ? "text-white font-semibold" : "bg-white border border-border text-muted-foreground hover:text-foreground hover:border-orange-300"}`}
+                style={filterClass === c ? { background: "linear-gradient(135deg, #F56600, #FF3D00)" } : {}}>
                 {c}
               </button>
             ))}
@@ -443,8 +438,8 @@ const Index = () => {
             </div>
             {districts.map((d) => (
               <button key={d} onClick={() => setFilterDistrict(d)}
-                className={`px-4 py-1.5 rounded-full text-sm font-golos transition-all ${filterDistrict === d ? "text-black font-semibold" : "glass-card text-muted-foreground hover:text-foreground"}`}
-                style={filterDistrict === d ? { background: "linear-gradient(135deg, #00D4FF, #0099CC)" } : {}}>
+                className={`px-4 py-1.5 rounded-full text-sm font-golos transition-all ${filterDistrict === d ? "text-white font-semibold" : "bg-white border border-border text-muted-foreground hover:text-foreground hover:border-orange-300"}`}
+                style={filterDistrict === d ? { background: "linear-gradient(135deg, #F56600, #FF3D00)" } : {}}>
                 {d}
               </button>
             ))}
@@ -453,25 +448,25 @@ const Index = () => {
           {/* Properties grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 animate-fade-in">
             {filteredProperties.map((p) => (
-              <div key={p.id} className="glass-card rounded-2xl overflow-hidden group hover:border-orange-500/30 transition-all duration-300">
+              <div key={p.id} className="bg-white rounded-2xl overflow-hidden group hover:shadow-lg transition-all duration-300 border border-border">
                 <div className="relative h-52 overflow-hidden">
                   <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold font-oswald tracking-wider text-black"
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold font-oswald tracking-wider text-white"
                     style={{ background: p.badgeColor }}>{p.badge}</div>
                   <button onClick={() => toggleCompare(p.id)}
-                    className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-all ${compareList.includes(p.id) ? "bg-orange-500 text-black" : "glass-card text-muted-foreground hover:text-white"}`}>
+                    className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-all ${compareList.includes(p.id) ? "bg-orange-500 text-white" : "bg-white/80 text-muted-foreground hover:text-foreground"}`}>
                     <Icon name="GitCompare" size={13} />
                   </button>
-                  <div className="absolute bottom-3 left-3 text-xs font-golos text-muted-foreground">{p.propClass}</div>
+                  <div className="absolute bottom-3 left-3 text-xs font-golos text-white/80 bg-black/30 px-2 py-0.5 rounded">{p.propClass}</div>
                   <div className="absolute bottom-3 right-3 flex items-center gap-1 text-xs font-semibold text-white">
-                    <Icon name="Star" size={11} className="neon-orange" />{p.rating}
+                    <Icon name="Star" size={11} className="brand-orange" />{p.rating}
                   </div>
                 </div>
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h3 className="font-oswald font-bold text-xl text-white">{p.name}</h3>
+                      <h3 className="font-oswald font-bold text-xl text-foreground">{p.name}</h3>
                       <div className="flex items-center gap-1 mt-1">
                         <Icon name="MapPin" size={12} className="text-muted-foreground" />
                         <span className="text-sm text-muted-foreground font-golos">{p.district}</span>
@@ -494,8 +489,7 @@ const Index = () => {
                   </div>
                   <div className="flex flex-wrap gap-2 mb-5">
                     {p.features.map((f) => (
-                      <span key={f} className="px-2.5 py-1 rounded-md text-xs font-golos"
-                        style={{ background: "rgba(255,255,255,0.05)", color: "#aaa" }}>{f}</span>
+                      <span key={f} className="px-2.5 py-1 rounded-md text-xs font-golos bg-muted text-muted-foreground">{f}</span>
                     ))}
                   </div>
                   <button className="w-full btn-primary py-3 rounded-xl font-golos font-semibold text-sm text-white"
@@ -509,15 +503,15 @@ const Index = () => {
 
           {/* Gallery */}
           <div className="mb-12">
-            <h2 className="font-oswald font-bold text-2xl text-white mb-6 flex items-center gap-3">
-              <Icon name="Images" size={20} className="neon-orange" />
+            <h2 className="font-oswald font-bold text-2xl text-foreground mb-6 flex items-center gap-3">
+              <Icon name="Images" size={20} className="brand-orange" />
               Галерея объектов
             </h2>
-            <div className="glass-card rounded-2xl overflow-hidden">
+            <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-sm">
               <div className="relative h-72 md:h-96">
                 <img src={galleryImages[galleryIndex].src} alt={galleryImages[galleryIndex].caption}
                   className="w-full h-full object-cover animate-fade-in" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-5 left-5 font-golos text-white font-medium">
                   {galleryImages[galleryIndex].caption}
                 </div>
@@ -542,15 +536,15 @@ const Index = () => {
           </div>
 
           {/* About */}
-          <div className="glass-card rounded-2xl p-8 mb-12 flex flex-col md:flex-row items-center gap-8">
+          <div className="bg-white rounded-2xl p-8 mb-12 flex flex-col md:flex-row items-center gap-8 border border-border shadow-sm">
             <div className="flex-shrink-0">
               <div className="w-20 h-20 rounded-2xl flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
+                style={{ background: "linear-gradient(135deg, #F56600, #FF3D00)" }}>
                 <Icon name="Building2" size={36} className="text-white" />
               </div>
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h3 className="font-oswald font-bold text-2xl text-white mb-2">О компании «Новый Мир»</h3>
+              <h3 className="font-oswald font-bold text-2xl text-foreground mb-2">О компании «Новый Мир»</h3>
               <p className="text-muted-foreground font-golos leading-relaxed mb-4">
                 Работаем на рынке недвижимости более 10 лет. Подбираем новостройки
                 от проверенных застройщиков по всей России и за рубежом — бесплатно для покупателей.
@@ -590,59 +584,59 @@ const Index = () => {
   // ── CONTACT ───────────────────────────────────────────────────────────────
   if (screen === "contact") {
     return (
-      <div className="min-h-screen noise-bg flex items-center justify-center px-6 py-16">
+      <div className="min-h-screen noise-bg hero-pattern flex items-center justify-center px-6 py-16">
         <div className="absolute top-20 left-20 w-72 h-72 rounded-full opacity-10 blur-3xl"
-          style={{ background: "radial-gradient(circle, #00D4FF, transparent)" }} />
+          style={{ background: "radial-gradient(circle, #F56600, transparent)" }} />
 
         <div className="relative z-10 w-full max-w-md animate-slide-up">
           <div className="flex items-center justify-between mb-8">
-            <button className="flex items-center gap-2 text-muted-foreground hover:text-white transition-colors font-golos text-sm"
+            <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-golos text-sm"
               onClick={() => setScreen("results")}>
               <Icon name="ArrowLeft" size={14} />Назад к объектам
             </button>
             <a href="tel:+79043870441" className="flex items-center gap-2 btn-secondary px-4 py-2 rounded-xl text-sm font-golos">
-              <Icon name="Phone" size={14} />
+              <Icon name="Phone" size={14} className="brand-orange" />
               <span className="hidden sm:inline">Позвонить</span>
             </a>
           </div>
 
-          <div className="glass-card rounded-2xl p-8">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
             <div className="text-center mb-8">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
-                style={{ background: "linear-gradient(135deg, #FF8C00, #FF4500)" }}>
+                style={{ background: "linear-gradient(135deg, #F56600, #FF3D00)" }}>
                 <Icon name="MessageCircle" size={26} className="text-white" />
               </div>
-              <h2 className="font-oswald font-bold text-3xl text-white mb-2">Связаться с агентом</h2>
+              <h2 className="font-oswald font-bold text-3xl text-foreground mb-2">Связаться с агентом</h2>
               <p className="text-muted-foreground font-golos text-sm">
-                Оставьте контакты, и мы свяжемся с вами в течение 15 минут
+                Оставьте контакты — свяжемся в течение 15 минут
               </p>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-golos text-muted-foreground mb-2">Ваше имя *</label>
+                <label className="block text-sm font-golos text-foreground font-medium mb-2">Ваше имя *</label>
                 <input type="text" placeholder="Например, Андрей" value={form.name}
                   onChange={(e) => { setForm((f) => ({ ...f, name: e.target.value })); setFormErrors((er) => ({ ...er, name: "" })); }}
-                  className={`w-full px-4 py-3 rounded-xl bg-muted border font-golos text-white placeholder:text-muted-foreground focus:outline-none transition-all ${formErrors.name ? "border-red-500" : "border-border focus:border-orange-500"}`}
+                  className={`w-full px-4 py-3 rounded-xl bg-muted border font-golos text-foreground placeholder:text-muted-foreground focus:outline-none transition-all ${formErrors.name ? "border-red-400" : "border-border focus:border-orange-400"}`}
                 />
-                {formErrors.name && <p className="text-red-400 text-xs mt-1 font-golos">{formErrors.name}</p>}
+                {formErrors.name && <p className="text-red-500 text-xs mt-1 font-golos">{formErrors.name}</p>}
               </div>
               <div>
-                <label className="block text-sm font-golos text-muted-foreground mb-2">Телефон *</label>
+                <label className="block text-sm font-golos text-foreground font-medium mb-2">Телефон *</label>
                 <input type="tel" placeholder="+7 (900) 000-00-00" value={form.phone}
                   onChange={(e) => { setForm((f) => ({ ...f, phone: e.target.value })); setFormErrors((er) => ({ ...er, phone: "" })); }}
-                  className={`w-full px-4 py-3 rounded-xl bg-muted border font-golos text-white placeholder:text-muted-foreground focus:outline-none transition-all ${formErrors.phone ? "border-red-500" : "border-border focus:border-orange-500"}`}
+                  className={`w-full px-4 py-3 rounded-xl bg-muted border font-golos text-foreground placeholder:text-muted-foreground focus:outline-none transition-all ${formErrors.phone ? "border-red-400" : "border-border focus:border-orange-400"}`}
                 />
-                {formErrors.phone && <p className="text-red-400 text-xs mt-1 font-golos">{formErrors.phone}</p>}
+                {formErrors.phone && <p className="text-red-500 text-xs mt-1 font-golos">{formErrors.phone}</p>}
               </div>
               <div>
-                <label className="block text-sm font-golos text-muted-foreground mb-2">Комментарий (необязательно)</label>
+                <label className="block text-sm font-golos text-foreground font-medium mb-2">Комментарий (необязательно)</label>
                 <textarea placeholder="Бюджет, сроки, пожелания..." value={form.comment}
                   onChange={(e) => setForm((f) => ({ ...f, comment: e.target.value }))} rows={3}
-                  className="w-full px-4 py-3 rounded-xl bg-muted border border-border font-golos text-white placeholder:text-muted-foreground focus:outline-none focus:border-orange-500 transition-all resize-none" />
+                  className="w-full px-4 py-3 rounded-xl bg-muted border border-border font-golos text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-orange-400 transition-all resize-none" />
               </div>
               {formSendError && (
-                <p className="text-red-400 text-sm font-golos text-center">{formSendError}</p>
+                <p className="text-red-500 text-sm font-golos text-center">{formSendError}</p>
               )}
               <button className="w-full btn-primary py-4 rounded-xl font-golos font-semibold text-base text-white mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 onClick={handleSubmit} disabled={formLoading}>
@@ -650,21 +644,21 @@ const Index = () => {
               </button>
               <p className="text-center text-xs text-muted-foreground font-golos">
                 Нажимая кнопку, вы соглашаетесь с{" "}
-                <span className="neon-orange cursor-pointer hover:underline">политикой конфиденциальности</span>
+                <span className="brand-orange cursor-pointer hover:underline">политикой конфиденциальности</span>
               </p>
             </div>
           </div>
 
           <div className="mt-6 grid grid-cols-2 gap-3">
-            <a href="tel:+79043870441" className="glass-card rounded-xl p-4 text-center block hover:border-orange-500/50 transition-all">
-              <Icon name="Phone" size={18} className="neon-orange mx-auto mb-2" />
+            <a href="tel:+79043870441" className="bg-white rounded-xl p-4 text-center block hover:shadow-md hover:border-orange-300 transition-all border border-border">
+              <Icon name="Phone" size={18} className="brand-orange mx-auto mb-2" />
               <div className="text-xs text-muted-foreground font-golos mb-1">Звонок</div>
-              <div className="text-xs font-medium text-white font-golos">+7 (904) 387-04-41</div>
+              <div className="text-xs font-medium text-foreground font-golos">+7 (904) 387-04-41</div>
             </a>
-            <a href="https://t.me/Smirnov_uslugi" target="_blank" rel="noreferrer" className="glass-card rounded-xl p-4 text-center block hover:border-orange-500/50 transition-all">
-              <Icon name="MessageSquare" size={18} className="neon-orange mx-auto mb-2" />
+            <a href="https://t.me/Smirnov_uslugi" target="_blank" rel="noreferrer" className="bg-white rounded-xl p-4 text-center block hover:shadow-md hover:border-orange-300 transition-all border border-border">
+              <Icon name="MessageSquare" size={18} className="brand-orange mx-auto mb-2" />
               <div className="text-xs text-muted-foreground font-golos mb-1">Telegram</div>
-              <div className="text-xs font-medium text-white font-golos">@Smirnov_uslugi</div>
+              <div className="text-xs font-medium text-foreground font-golos">@Smirnov_uslugi</div>
             </a>
           </div>
         </div>
@@ -674,13 +668,13 @@ const Index = () => {
 
   // ── SUCCESS ───────────────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen noise-bg flex items-center justify-center px-6">
+    <div className="min-h-screen noise-bg hero-pattern flex items-center justify-center px-6">
       <div className="text-center animate-scale-in max-w-md">
         <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6"
-          style={{ background: "linear-gradient(135deg, #39FF14, #00CC10)", boxShadow: "0 0 40px rgba(57,255,20,0.3)" }}>
-          <Icon name="Check" size={42} className="text-black" />
+          style={{ background: "linear-gradient(135deg, #22C55E, #16A34A)", boxShadow: "0 8px 32px rgba(34,197,94,0.3)" }}>
+          <Icon name="Check" size={42} className="text-white" />
         </div>
-        <h2 className="font-oswald font-bold text-4xl text-white mb-3">Заявка отправлена!</h2>
+        <h2 className="font-oswald font-bold text-4xl text-foreground mb-3">Заявка отправлена!</h2>
         <p className="text-muted-foreground font-golos mb-2">
           Отлично, {form.name || "друг"}! Наш агент свяжется с вами в ближайшие 15 минут.
         </p>

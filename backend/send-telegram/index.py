@@ -1,7 +1,6 @@
 import json
 import os
 import urllib.request
-import urllib.parse
 
 
 def handler(event: dict, context) -> dict:
@@ -25,14 +24,14 @@ def handler(event: dict, context) -> dict:
         return {
             "statusCode": 400,
             "headers": cors_headers,
-            "body": json.dumps({"error": "Имя и телефон обязательны"}),
+            "body": json.dumps({"error": "Имя и телефон обязательны"}, ensure_ascii=False),
         }
 
     token = os.environ["TELEGRAM_BOT_TOKEN"]
     chat_id = os.environ["TELEGRAM_CHAT_ID"]
 
     lines = [
-        "🏠 *Новая заявка с сайта*",
+        "🏠 Новая заявка с сайта НОВЫЙ МИР",
         "",
         f"👤 Имя: {name}",
         f"📞 Телефон: {phone}",
@@ -45,21 +44,36 @@ def handler(event: dict, context) -> dict:
     text = "\n".join(lines)
 
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    data = urllib.parse.urlencode({
+    payload = json.dumps({
         "chat_id": chat_id,
         "text": text,
-        "parse_mode": "Markdown",
-    }).encode()
+    }, ensure_ascii=False).encode("utf-8")
 
-    req = urllib.request.Request(url, data=data, method="POST")
-    with urllib.request.urlopen(req) as resp:
-        result = json.loads(resp.read())
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={"Content-Type": "application/json; charset=utf-8"},
+        method="POST",
+    )
 
-    if not result.get("ok"):
+    try:
+        with urllib.request.urlopen(req) as resp:
+            result = json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8")
+        print(f"[Telegram API error] status={e.code} body={error_body}")
         return {
             "statusCode": 500,
             "headers": cors_headers,
-            "body": json.dumps({"error": "Ошибка отправки в Telegram"}),
+            "body": json.dumps({"error": f"Telegram error {e.code}: {error_body}"}, ensure_ascii=False),
+        }
+
+    if not result.get("ok"):
+        print(f"[Telegram not ok] {result}")
+        return {
+            "statusCode": 500,
+            "headers": cors_headers,
+            "body": json.dumps({"error": "Ошибка Telegram"}, ensure_ascii=False),
         }
 
     return {
